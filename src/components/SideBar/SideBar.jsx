@@ -6,6 +6,7 @@ const SideBar = () => {
     <div className='sidebar'>
         <div className="sidebarItem">
             <span className="sidebarTitle">ABOUT ME</span>
+            <img className='sidebarImage' src="http://www.themarketingsage.com/wp-content/uploads/2015/08/about-me-leon-severan-we-buy-houses.jpg" alt="" />
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae, sequi?</p>
         </div>
         <div className="sidebarItem">

@@ -15,6 +15,12 @@
     align-items: center;
 }
 
+.sidebarImage {
+    width: 250px;
+    height: 150px;
+    margin-top: 10px;
+}
+
 .sidebarItem > p {
     padding: 30px;
     text-align: center;
