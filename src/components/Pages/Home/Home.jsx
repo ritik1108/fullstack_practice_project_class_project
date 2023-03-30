@@ -1,8 +1,8 @@
 import React from 'react';
 import './home.css';
-import Header from '../Header/Header';
-import Posts from '../Posts/Posts';
-import SideBar from '../SideBar/SideBar';
+import Header from '../../Header/Header';
+import Posts from '../../Posts/Posts';
+import SideBar from '../../SideBar/SideBar';
 
 const Home = () => {
   return (
