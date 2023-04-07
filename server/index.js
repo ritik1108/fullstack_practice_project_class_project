@@ -5,6 +5,10 @@ const dotenv = require('dotenv');
 const mongoose = require('mongoose');
 const authRoute = require('./routes/auth');
 const postRoute = require('./routes/post');
+const userRoute = require('./routes/users');
+const categoryRoute = require('./routes/categories');
+
+const multer = require('multer');
 
 dotenv.config();
 
@@ -18,8 +22,32 @@ mongoose.connect(process.env.MONGO_URL, {
 .then(console.log('Connected to MongoDB'))
 .catch(err => console.log('error',err));  
 
+// Set up Multer storage configuration
+const storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+      cb(null, 'uploads/');
+    },
+    filename: (req, file, cb) => {
+      cb(null, Date.now() + '-' + file.originalname);
+    },
+  });
+  
+  const upload = multer({ storage: storage });
+
 app.use('/api/auth', authRoute);
 app.use('/api/posts', postRoute);
+app.use('/api/user', userRoute);
+app.use('/api/categories', categoryRoute);
+
+// Image upload route
+app.post('/api/upload', upload.single('file'), (req, res) => {
+    if (req.file) {
+      res.status(200).json({ message: 'Image uploaded successfully', file: req.file });
+    } else {
+      res.status(400).json({ message: 'No image uploaded' });
+    }
+  });
+
 
 app.listen(process.env.PORT||"5000", () => {
     console.log(`Backend server is running on ${process.env.PORT}`);
