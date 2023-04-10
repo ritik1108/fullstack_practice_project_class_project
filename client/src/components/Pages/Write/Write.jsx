@@ -2,6 +2,7 @@ import React from 'react';
 import './write.css';
 
 const Write = () => {
+    const user = false;
   return (
     <div className='write'>
         <img className="writeImage" src="https://images.pexels.com/photos/1420769/pexels-photo-1420769.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" />
